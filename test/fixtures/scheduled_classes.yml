@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member: one
+  gym: one
+  gym_class: one
+
+two:
+  member: two
+  gym: two
+  gym_class: two
