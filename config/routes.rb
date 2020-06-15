@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   root "application#home"
+  get "/dashboard", to: "gyms#dashboard", as: "dashboard"
 
   get '/signup', to: "gyms#new", as: "signup"
   get '/login', to: "sessions#new", as: "login"
