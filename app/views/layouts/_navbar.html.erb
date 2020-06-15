@@ -4,7 +4,7 @@
          <div class="navbar-nav">
             <% if !current_user %>
                <%= link_to "Sign Up", signup_path , class: "nav-item nav-link"%>
-               <%= link_to "Log In", root_path , class: "nav-item nav-link"%>
+               <%= link_to "Log In", login_path , class: "nav-item nav-link"%>
             <% else %>
                <%= link_to "Classes", gym_classes_path , class: "nav-item nav-link"%>
                <%= link_to "Members", members_path , class: "nav-item nav-link"%>

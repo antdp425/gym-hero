@@ -1,0 +1,11 @@
+<h1>Log In</h1>
+<br>
+<%= form_for :gym , url: "/sessions", method: :post do |f| %>
+   <%= f.label "Email:"%>
+   <%= f.email_field :email%>
+   <br>
+   <%= f.label "Password"%>
+   <%= f.password_field :password%>
+   <br>
+   <%= f.submit "Log In", class: "btn-primary"%>
+<% end %>
