@@ -1,4 +1,6 @@
 class GymClassesController < ApplicationController
+   before_action :logged_in?
+
    def index
       @classes = current_user.gym_classes.all.count
    end

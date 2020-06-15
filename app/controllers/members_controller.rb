@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+   before_action :logged_in?
+   
    def index
       @members = current_user.members.all.count
    end
