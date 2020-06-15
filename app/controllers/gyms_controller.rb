@@ -1,11 +1,13 @@
 class GymsController < ApplicationController
    before_action :logged_in?, only: [:dashboard]
+   before_action :dashboard_if_logged_in, only: [:new, :create]
 
    def dashboard
    end
    
    def new
-      !!current_user ? (redirect_to dashboard_path) : (@gym = Gym.new)
+      # !!current_user ? (redirect_to dashboard_path) : (@gym = Gym.new)
+      @gym = Gym.new
    end
 
    def create

@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
    private
 
+   def dashboard_if_logged_in
+      redirect_to root_path if !!current_user
+   end
+
    def logged_in?
       redirect_to root_path unless !!current_user 
    end
