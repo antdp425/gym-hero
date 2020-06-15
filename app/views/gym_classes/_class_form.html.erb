@@ -1,0 +1,15 @@
+<%= form_for @class do |f| %>
+   <%=f.label "Name" %>
+   <%=f.text_field :name %>
+   <br>
+   <%=f.label "Description:" %>
+   <%=f.text_field :description %>
+   <br>
+   <%=f.label "Duration (minutes):" %>
+   <%=f.number_field :duration %>
+   <br>
+   <%=f.label "Max Size:" %>
+   <%=f.number_field :max_size %>
+   <br>
+   <%=f.submit "Create Class"%>
+<% end %>
