@@ -6,7 +6,6 @@ class GymsController < ApplicationController
    end
    
    def new
-      # !!current_user ? (redirect_to dashboard_path) : (@gym = Gym.new)
       @gym = Gym.new
    end
 
