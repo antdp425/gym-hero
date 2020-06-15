@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   root "application#home"
 
   get '/signup', to: "gyms#new", as: "signup"
+  get '/login', to: "sessions#new", as: "login"
+  delete '/logout', to: "sessions#destroy", as: "logout"
+
 end
