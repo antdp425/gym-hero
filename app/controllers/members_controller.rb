@@ -17,20 +17,25 @@ class MembersController < ApplicationController
    end
 
    def show
-      @member = current_user.members.find_by(id: params[:id])
+      redirect_to members_path unless @member = current_user_member
    end
 
    def edit
-      @member = current_user.members.find_by(id: params[:id])
+      redirect_to members_path unless @member = current_user_member   
    end
 
    def update
-      @member = current_user.members.find_by(id: params[:id])
+      redirect_to members_path and return unless @member = current_user_member
       @member.update(member_params)
       redirect_to @member
    end
 
    private
+
+   def current_user_member
+      current_user.members.find_by(id: params[:id])
+   end
+
    def member_params
       params.require(:member).permit(:name,:email,:age,:phone_number)
    end
