@@ -1,0 +1,12 @@
+<h1>Sign Up</h1>
+<br>
+<%= form_for @gym do |f| %>
+   <%= f.label "Email:"%>
+   <%= f.email_field :email%>
+   <br>
+   <%= f.label "Password"%>
+   <%= f.password_field :password%>
+   <br>
+   <%= f.submit "Sign Up", class: "btn-primary"%>
+
+   <% end %>
