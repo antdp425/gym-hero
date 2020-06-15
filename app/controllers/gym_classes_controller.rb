@@ -17,20 +17,25 @@ class GymClassesController < ApplicationController
    end
 
    def show
-      @class = current_user.gym_classes.find_by(id: params[:id])
+      redirect_to gym_classes_path unless @class = current_user_gym_class
    end
 
    def edit
-      @class = current_user.gym_classes.find_by(id: params[:id])
+      redirect_to gym_classes_path unless @class = current_user_gym_class
    end
 
    def update
-      @class = current_user.gym_classes.find_by(id: params[:id])
+      redirect_to gym_classes_path and return unless @class = current_user_gym_class
       @class.update(class_params)
       redirect_to @class
    end
 
    private
+
+   def current_user_gym_class
+      current_user.gym_classes.find_by(id: params[:id])
+   end
+
    def class_params
       params.require(:gym_class).permit(:name,:description,:duration,:max_size)
    end
