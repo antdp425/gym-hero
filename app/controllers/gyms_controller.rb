@@ -1,6 +1,7 @@
 class GymsController < ApplicationController
    before_action :logged_in?, only: [:dashboard]
    before_action :dashboard_if_logged_in, only: [:new, :create]
+   skip_before_action :verify_authenticity_token, only: [:create]
 
    def dashboard
    end
@@ -11,6 +12,7 @@ class GymsController < ApplicationController
 
    def create
       @gym = Gym.new(gym_params)
+      binding.pry
          if @gym.save      
             session[:user_id] = @gym.id
             redirect_to dashboard_path

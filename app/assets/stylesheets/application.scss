@@ -21,7 +21,10 @@
    text-decoration: none;
 }
 
-.fields_with_errors{
-   color: green;
-   border-color: fuchsia;
+.field_with_errors .form-control{
+   border-color: red;
+}
+
+small{
+   color: red
 }
