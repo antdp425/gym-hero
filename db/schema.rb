@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_06_14_234753) do
 
   create_table "scheduled_classes", force: :cascade do |t|
     t.datetime "time"
-    t.integer "member_id", null: false
+    t.integer "member_id"
     t.integer "gym_id", null: false
     t.integer "gym_class_id", null: false
     t.datetime "created_at", precision: 6, null: false
