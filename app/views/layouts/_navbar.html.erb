@@ -2,7 +2,7 @@
    <div class="container-fluid">
       <%= link_to "GymHero", root_path , class: "navbar-brand"%>
          <div class="navbar-nav">
-            <% if !current_user %>
+            <% if !current_gym %>
                <%= link_to "Sign Up", signup_path , class: "nav-item nav-link"%>
                <%= link_to "Log In", login_path , class: "nav-item nav-link"%>
             <% else %>
@@ -10,7 +10,7 @@
                <%= link_to "Members", members_path , class: "nav-item nav-link"%>
             <% end %>
 
-            <% if current_user %>
+            <% if current_gym %>
                <%= link_to "Log Out", logout_path, method: :delete , class: "nav-item nav-link"%>
             <% end %>
          </div>
