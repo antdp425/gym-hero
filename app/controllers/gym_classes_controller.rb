@@ -11,13 +11,8 @@ class GymClassesController < ApplicationController
    end
 
    def create
-      binding.pry
       @class = current_gym.gym_classes.build(class_params)
-      
-      if class_params[:scheduled_classes_attributes].present?
-         @class.scheduled_classes.last.gym = current_gym
-      end
-
+      @class.scheduled_classes.last.gym = current_gym
       if @class.save
          redirect_to @class
       else
@@ -35,7 +30,9 @@ class GymClassesController < ApplicationController
 
    def update
       redirect_to gym_classes_path and return unless @class = current_gym_gym_class
+      binding.pry
       @class.update(class_params)
+      binding.pry
       redirect_to @class
    end
 

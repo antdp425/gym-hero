@@ -3,4 +3,6 @@ class ScheduledClass < ApplicationRecord
   belongs_to :gym_class
   belongs_to :gym
 
+  validates :time, presence: :true
+
 end

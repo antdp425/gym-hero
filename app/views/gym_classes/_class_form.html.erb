@@ -1,24 +1,3 @@
-<%= form_for @class do |f| %>
-   <%=f.label "Name" %>
-   <%=f.text_field :name %>
-   <br>
-   <%=f.label "Description:" %>
-   <%=f.text_field :description %>
-   <br>
-   <%=f.label "Duration (minutes):" %>
-   <%=f.number_field :duration %>
-   <br>
-   <%=f.label "Max Size:" %>
-   <%=f.number_field :max_size %>
-   <br>
-   <%=f.submit "#{button} Gym Class"%>
-<% end %>
-
-<br>
-<br>
-
-Testing New Class Form w/ Scheduled Class
-
 <%= form_with model: @class, local: true do |n| %>
    <%=n.label "Name" %>
    <%=n.text_field :name %>
