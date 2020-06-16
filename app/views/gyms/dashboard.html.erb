@@ -1,1 +1,18 @@
+<h3 class>Dashboard for: Fix Me</h3>
+
+<hr>
+<%= current_gym.name %>
 <%= current_gym.email %>
+<%= current_gym.uid %>
+<hr>
+
+
+<div class="card-group">
+   <div class="card bg-primary">
+      <%= link_to 'Create Gym Member', new_member_path, class: "card-body text-center"%>
+   </div>
+
+   <div class="card bg-success">
+      <%= link_to 'Creat Class', new_gym_class_path, class: "card-body text-center"%>
+   </div>
+</div>
