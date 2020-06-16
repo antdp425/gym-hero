@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :members
   resources :gym_classes do 
-    resources :scheduled_classes, only: [:new, :create, :show]
+    resources :scheduled_classes, only: [:new, :create, :index]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
