@@ -3,3 +3,11 @@
 <%= @class.description %>
 <br>
 <%= @class.duration %>
+
+Upcoming Classes:
+<br>
+<br>
+
+<% @class.scheduled_classes.group(:time).each do |gc| %>
+      <%= gc.time.strftime("%B %d, %Y at %I:%M%p")%> <br>
+<% end %>

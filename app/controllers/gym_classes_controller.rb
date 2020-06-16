@@ -11,10 +11,13 @@ class GymClassesController < ApplicationController
    end
 
    def create
-      @class = current_gym.gym_classes.build(class_params)
-      @class.scheduled_classes.last.gym = current_gym
-
       binding.pry
+      @class = current_gym.gym_classes.build(class_params)
+      
+      if class_params[:scheduled_classes_attributes].present?
+         @class.scheduled_classes.last.gym = current_gym
+      end
+
       if @class.save
          redirect_to @class
       else
