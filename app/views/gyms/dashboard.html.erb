@@ -5,7 +5,17 @@
 <%= current_gym.email %>
 <%= current_gym.uid %>
 <hr>
-
+<div class="card-group">
+   <div class="card text-center">
+      <%= current_gym.members.count %>  members <br>  
+   </div>
+   <div class="card text-center">
+      <%= current_gym.gym_classes.count %>  classes <br>
+   </div>
+   <div class="card text-center">
+      <%= current_gym.scheduled_classes.where("time > ?", DateTime.now).distinct(:gym_class_id).distinct(:time).count %> upcoming classes
+   </div>
+</div>
 
 <div class="card-group">
    <div class="card bg-primary">
