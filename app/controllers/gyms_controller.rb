@@ -10,9 +10,13 @@ class GymsController < ApplicationController
    end
 
    def create
-      @gym = Gym.create(gym_params)
-      session[:user_id] = @gym.id 
-      redirect_to dashboard_path
+      @gym = Gym.new(gym_params)
+         if @gym.save      
+            session[:user_id] = @gym.id
+            redirect_to dashboard_path
+         else
+            render :new
+         end
    end
 
    private
