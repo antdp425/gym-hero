@@ -9,3 +9,7 @@ class Member < ApplicationRecord
   validates :phone_number, length: {is: 10}, numericality: { only_integer: true , message: "only allows numbers" }
 
 end
+
+def full_name
+  "#{last_name}, #{first_name}"
+end

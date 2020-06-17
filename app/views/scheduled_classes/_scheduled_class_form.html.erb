@@ -1,8 +1,9 @@
 <%= form_for ([@class , @scheduled_class]) do |f| %>
    <%= f.label "Date:"%>
    <%= f.datetime_field :time %>
-   <br>
-   <%= f.label "Add Member:"%>
-   <%= f.collection_select :member_id, current_gym.members.all , :id, :name, {include_blank: "Add a Member"}%>
+   <hr> 
+   <%= f.label "Add Member (optional):"%>
+   <%= f.collection_select :member_id, current_gym.members.all , :id, :full_name, {include_blank: "---"}%>
+   <br> 
    <%= f.submit "Schedule Class"%>
 <% end %>

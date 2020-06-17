@@ -13,5 +13,4 @@ Upcoming Classes:
 
 <% @class.scheduled_classes.group(:time).each do |gc| %>
       <%= gc.time.strftime("%B %d, %Y at %I:%M%p")%> <br>
-      <% binding.pry %>
 <% end %>
