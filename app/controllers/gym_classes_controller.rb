@@ -30,8 +30,11 @@ class GymClassesController < ApplicationController
 
    def update
       redirect_to gym_classes_path and return unless @class = current_gym_gym_class
-      @class.update(class_params)
-      redirect_to @class
+      if @class.update(class_params)
+         redirect_to @class
+      else
+         render :edit
+      end
    end
 
    private

@@ -28,8 +28,11 @@ class MembersController < ApplicationController
 
    def update
       redirect_to members_path and return unless @member = current_gym_member
-      @member.update(member_params)
-      redirect_to @member
+      if @member.update(member_params)
+         redirect_to @member
+      else
+         render :edit
+      end
    end
 
    private
@@ -39,6 +42,6 @@ class MembersController < ApplicationController
    end
 
    def member_params
-      params.require(:member).permit(:name,:email,:age,:phone_number)
+      params.require(:member).permit(:first_name, :last_name ,:email,:phone_number)
    end
 end

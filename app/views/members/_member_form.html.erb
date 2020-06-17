@@ -1,12 +1,12 @@
 <%= form_for @member do |f| %>
-   <%=f.label "Name" %>
-   <%=f.text_field :name %>
+   <%=f.label "First Name:" %>
+   <%=f.text_field :first_name %>
+   <br>
+   <%=f.label "Last Name:" %>
+   <%=f.text_field :last_name %>
    <br>
    <%=f.label "Email:" %>
    <%=f.email_field :email %>
-   <br>
-   <%=f.label "Age" %>
-   <%=f.number_field :age %>
    <br>
    <%=f.label "Phone Number:" %>
    <%=f.telephone_field :phone_number %>

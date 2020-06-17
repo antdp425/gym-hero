@@ -7,7 +7,6 @@ class ScheduledClassesController < ApplicationController
    end
 
    def new
-      binding.pry
    end
 
    def create
@@ -16,7 +15,6 @@ class ScheduledClassesController < ApplicationController
       if @scheduled_class.save
          redirect_to gym_class_scheduled_classes_path and return
       else
-         binding.pry
          render :new
       end
    end
