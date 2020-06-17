@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_06_14_234753) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.integer "age"
     t.string "phone_number"
     t.integer "gym_id", null: false
     t.datetime "created_at", precision: 6, null: false
