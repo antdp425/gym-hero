@@ -11,10 +11,12 @@
    <%=n.label "Max Size:" %>
    <%=n.number_field :max_size %>
    <br>
+   <% if !params[:id].present?%>
    <%= n.fields_for :scheduled_classes, @scheduled_class do |sc| %>
       <%= sc.label "Date + Time:"%>
       <%= sc.datetime_field :time %>
          <br>
       <% end %>
+   <% end %>
    <%=n.submit "#{button} Gym Class"%>
 <% end %>
