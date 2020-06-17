@@ -15,8 +15,6 @@
       <%= sc.label "Date + Time:"%>
       <%= sc.datetime_field :time %>
          <br>
-      <%= sc.label "with Member (optional):"%>
-      <%= sc.collection_select :member_id, current_gym.members.all , :id, :name, {include_blank: "Add a Member"}%>
       <% end %>
    <%=n.submit "#{button} Gym Class"%>
 <% end %>

@@ -13,6 +13,7 @@ class GymClassesController < ApplicationController
    def create
       @class = current_gym.gym_classes.build(class_params)
       @class.scheduled_classes.last.gym = current_gym
+      binding.pry
       if @class.save
          redirect_to @class
       else
@@ -48,10 +49,6 @@ class GymClassesController < ApplicationController
          :description,
          :duration,
          :max_size, 
-         scheduled_classes_attributes:[
-            :time,
-            :member_id,
-            :gym_id
-         ])
+         scheduled_classes_attributes:[:time])
    end
 end
