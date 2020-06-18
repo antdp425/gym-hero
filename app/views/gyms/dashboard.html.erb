@@ -4,19 +4,18 @@
 <%= current_gym.uid %>
 <hr>
 <div class="card-group">
-   <div class="card text-center">
+   <div class="card border-primary text-center">
    <div class="card-body">
       <%= current_gym.members.count %> <br> Members
       </div>
    </div>
-   <div class="card text-center">
+   <div class="card border-success text-center">
    <div class="card-body">
       <%= current_gym.gym_classes.count %> <br> Classes
       </div>
    </div>
-   <div class="card text-center">
+   <div class="card border-dark text-center">
    <div class="card-body">
-   <% binding.pry %>
       <%= current_gym.scheduled_classes.todays_classes.count%> <br> Classes Today
       </div>
    </div>
@@ -28,6 +27,6 @@
    </div>
 
    <div class="card bg-success">
-      <%= link_to 'Creat Class', new_gym_class_path, class: "card-body text-center"%>
+      <%= link_to 'Create Class', new_gym_class_path, class: "card-body text-center"%>
    </div>
 </div>
