@@ -5,16 +5,23 @@
 <hr>
 <div class="card-group">
    <div class="card text-center">
-      <%= current_gym.members.count %>  members <br>  
+   <div class="card-body">
+      <%= current_gym.members.count %> <br> Members
+      </div>
    </div>
    <div class="card text-center">
-      <%= current_gym.gym_classes.count %>  classes <br>
+   <div class="card-body">
+      <%= current_gym.gym_classes.count %> <br> Classes
+      </div>
    </div>
    <div class="card text-center">
-      <%= current_gym.scheduled_classes.where("time > ?", DateTime.now).distinct(:gym_class_id).distinct(:time).count %> upcoming classes
+   <div class="card-body">
+   <% binding.pry %>
+      <%= current_gym.scheduled_classes.where("time = ?", DateTime.now).distinct(:gym_class_id).distinct(:time).count %> <br> Classes Today
+      </div>
    </div>
 </div>
-
+<br>
 <div class="card-group">
    <div class="card bg-primary">
       <%= link_to 'Create Gym Member', new_member_path, class: "card-body text-center"%>
