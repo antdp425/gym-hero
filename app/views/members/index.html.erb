@@ -3,8 +3,8 @@
    <table class="table table-striped table-bordered">
       <thead>
          <tr>
-            <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
             <th scope="col">Phone Number</th>
             <th scope="col">Actions</th>
          </tr>
@@ -12,8 +12,8 @@
       <tbody>
          <% @members.each do |m| %>
             <tr>
-               <td scope="row"><%= m.first_name %></td>
-               <td><%= m.last_name %></td>
+               <td scope="row"><%= m.last_name %></td>
+               <td><%= m.first_name %></td>
                <td><%= m.phone_number %></td>
                <td>
                   <%= link_to 'View', member_path(m), class: "btn btn-sm btn-primary"%> 

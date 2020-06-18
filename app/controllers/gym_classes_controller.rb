@@ -3,7 +3,7 @@ class GymClassesController < ApplicationController
    before_action :current_gym_gym_class, only: [:show, :edit]
 
    def index
-      @classes = current_gym.gym_classes.all.count
+      @classes = current_gym.gym_classes
    end
 
    def new
