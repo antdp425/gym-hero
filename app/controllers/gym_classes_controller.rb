@@ -1,5 +1,6 @@
 class GymClassesController < ApplicationController
    before_action :logged_in?
+   before_action :current_gym_gym_class, only: [:show, :edit]
 
    def index
       @classes = current_gym.gym_classes.all.count
@@ -21,15 +22,15 @@ class GymClassesController < ApplicationController
    end
 
    def show
-      redirect_to gym_classes_path unless @class = current_gym_gym_class
+      redirect_to gym_classes_path unless @class
    end
 
    def edit
-      redirect_to gym_classes_path unless @class = current_gym_gym_class
+      redirect_to gym_classes_path unless @class
    end
 
    def update
-      redirect_to gym_classes_path and return unless @class = current_gym_gym_class
+      redirect_to gym_classes_path and return unless current_gym_gym_class
       if @class.update(class_params)
          redirect_to @class
       else
@@ -40,7 +41,7 @@ class GymClassesController < ApplicationController
    private
 
    def current_gym_gym_class
-      current_gym.gym_classes.find_by(id: params[:id])
+      @class = current_gym.gym_classes.find_by(id: params[:id])
    end
 
    def class_params

@@ -1,9 +1,17 @@
 <%= form_for ([@class , @scheduled_class]) do |f| %>
-   <%= f.label "Date:"%>
-   <%= f.datetime_field :time %>
-   <br>
-   <%= f.label "Add Member (optional):"%>
-   <%= f.collection_select :member_id, current_gym.members.all , :id, :full_name, {include_blank: "---"}%>
-   <br> 
-   <%= f.submit "Schedule Class"%>
+   <div class="form-group row">
+      <div class="col-6">
+         <%= f.label "Date:"%>
+         <%= f.datetime_field :time, class: "form-control"%>
+         <%= content_tag :small, "#{@scheduled_class.errors.full_messages_for(:time).to_sentence}" if @scheduled_class.errors[:time].any?%>
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="col-6">
+         <%= f.label "Add Member (optional):"%>
+         <%= f.collection_select :member_id, current_gym.members.all , :id, :full_name, {include_blank: "---"}, class: "form-control"%>
+         <%= content_tag :small, "#{@scheduled_class.errors.full_messages_for(:member_id).to_sentence}" if @scheduled_class.errors[:member_id].any?%>
+      </div>
+   </div>
+         <%= f.submit "Schedule Class", class: "btn btn-primary"%>
 <% end %>
