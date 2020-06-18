@@ -17,7 +17,7 @@
    <div class="card text-center">
    <div class="card-body">
    <% binding.pry %>
-      <%= current_gym.scheduled_classes.where("time = ?", DateTime.now).distinct(:gym_class_id).distinct(:time).count %> <br> Classes Today
+      <%= current_gym.scheduled_classes.todays_classes.count%> <br> Classes Today
       </div>
    </div>
 </div>

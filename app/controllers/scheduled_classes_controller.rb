@@ -13,9 +13,7 @@ class ScheduledClassesController < ApplicationController
    def create
       @scheduled_class = @class.scheduled_classes.build(scheduled_class_params)
       @scheduled_class.gym = current_gym
-      binding.pry
       create_nil_member_scheduled_class unless scheduled_class_params[:member_id].blank?
-      binding.pry
       if @scheduled_class.save
          redirect_to gym_class_scheduled_classes_path and return
       else
