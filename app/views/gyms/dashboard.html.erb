@@ -5,9 +5,7 @@
 <hr>
 <div class="card-group">
    <div class="card border-primary text-center">
-   <div class="card-body">
-      <%= current_gym.members.count %> <br> Members
-      </div>
+      <%= link_to "#{current_gym.members.count} <br /> Members".html_safe , members_path, class: "card-body counter"%>
    </div>
    <div class="card border-success text-center">
    <div class="card-body">
