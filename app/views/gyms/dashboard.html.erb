@@ -8,14 +8,10 @@
       <%= link_to "#{current_gym.members.count} <br /> Members".html_safe , members_path, class: "card-body counter"%>
    </div>
    <div class="card border-success text-center">
-   <div class="card-body">
-      <%= current_gym.gym_classes.count %> <br> Classes
-      </div>
+      <%= link_to "#{current_gym.gym_classes.count} <br /> Classes".html_safe , gym_classes_path, class: "card-body counter"%>
    </div>
    <div class="card border-dark text-center">
-   <div class="card-body">
-      <%= current_gym.scheduled_classes.todays_classes.count%> <br> Classes Today
-      </div>
+      <%= link_to "#{current_gym.scheduled_classes.todays_classes.count} <br /> Classes Today".html_safe , todays_classes_path, class: "card-body counter"%>
    </div>
 </div>
 <br>

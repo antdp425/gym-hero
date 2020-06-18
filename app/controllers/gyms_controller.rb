@@ -19,6 +19,9 @@ class GymsController < ApplicationController
          end
    end
 
+   def today
+   end
+
    private
    
    def gym_params

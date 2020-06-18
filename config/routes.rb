@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete '/logout', to: "sessions#destroy", as: "logout"
 
+  get "/today", to: "gyms#today", as: "todays_classes"
+
   get "*path", to: redirect("/")
 end
