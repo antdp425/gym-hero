@@ -1,17 +1,21 @@
-<h1>Sign Up</h1>
-<br>
-
 <%= form_for @gym do |f| %>
    <div class="form-group row">
       <div class="col-7">
-         <%= f.label "Email:"%>
+         <%= f.label :name, "Gym Name:"%>
+         <%= f.text_field :name, class: "form-control"%>
+         <%= content_tag :small, "#{@gym.errors.full_messages_for(:name).to_sentence}" if @gym.errors[:name].any?%>
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="col-7">
+         <%= f.label :email, "Email:"%>
          <%= f.email_field :email, class: "form-control"%>
          <%= content_tag :small, "#{@gym.errors.full_messages_for(:email).to_sentence}" if @gym.errors[:email].any?%>
       </div>
    </div>
    <div class="form-group row">
       <div class="col-7">
-         <%= f.label "Password"%>
+         <%= f.label :password, "Password"%>
          <%= f.password_field :password, class: "form-control"%>
          <%= content_tag :small, "#{@gym.errors.full_messages_for(:password).to_sentence}" if @gym.errors[:password].any?%>
          </div>

@@ -1,4 +1,5 @@
 class ScheduledClassesController < ApplicationController
+   before_action :logged_in?
    before_action :get_class, only: [:new, :create]
    before_action :get_scheduled_class, only: [:new]
 
@@ -12,7 +13,6 @@ class ScheduledClassesController < ApplicationController
    def create
       @scheduled_class = @class.scheduled_classes.build(scheduled_class_params)
       @scheduled_class.gym = current_gym
-      binding.pry
       if @scheduled_class.save
          redirect_to gym_class_scheduled_classes_path and return
       else
@@ -20,19 +20,19 @@ class ScheduledClassesController < ApplicationController
       end
    end
 
+   private
+   
+      def get_class
+         @class = current_gym.gym_classes.find_by(id: params[:gym_class_id])
+      end
+   
+      def get_scheduled_class
+         @scheduled_class = @class.scheduled_classes.build
+      end
+   
+      def scheduled_class_params
+         params.require(:scheduled_class).permit(:time, :member_id)
+      end
 
 end
 
-private
-
-def get_class
-   @class = current_gym.gym_classes.find_by(id: params[:gym_class_id])
-end
-
-def get_scheduled_class
-   @scheduled_class = @class.scheduled_classes.build
-end
-
-def scheduled_class_params
-   params.require(:scheduled_class).permit(:time, :member_id)
-end
