@@ -1,22 +1,39 @@
 <%= form_with model: @class, local: true do |n| %>
-   <%=n.label "Name" %>
-   <%=n.text_field :name %>
-   <br>
-   <%=n.label "Description:" %>
-   <%=n.text_field :description %>
-   <br>
-   <%=n.label "Duration (minutes):" %>
-   <%=n.number_field :duration %>
-   <br>
-   <%=n.label "Max Size:" %>
-   <%=n.number_field :max_size %>
-   <br>
+   <div class="form-group row">
+      <div class="col-6">
+         <%=n.label "Name" %>
+         <%=n.text_field :name, class: "form-control"%>
+         <%= content_tag :small, "#{@class.errors.full_messages_for(:name).to_sentence}" if @class.errors[:name].any?%>
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="col-6">
+         <%=n.label "Description:" %>
+         <%=n.text_field :description, class: "form-control"%>
+      </div>
+   </div>
+   <div class="form-group row">
+      <div class="col-3">
+         <%=n.label "Duration (minutes):" %>
+         <%=n.number_field :duration, class: "form-control"%>
+         <%= content_tag :small, "#{@class.errors.full_messages_for(:duration).to_sentence}" if @class.errors[:duration].any?%>
+      </div>
+      <div class="col-3">
+         <%=n.label "Max Size:" %>
+         <%=n.number_field :max_size, class: "form-control"%>
+         <%= content_tag :small, "#{@class.errors.full_messages_for(:max_size).to_sentence}" if @class.errors[:max_size].any?%>
+      </div>
+   </div>
    <% if !params[:id].present?%>
-   <%= n.fields_for :scheduled_classes, @scheduled_class do |sc| %>
-      <%= sc.label "Date + Time:"%>
-      <%= sc.datetime_field :time %>
-         <br>
-      <% end %>
+      <%= n.fields_for :scheduled_classes, @scheduled_class do |sc| %>
+   <div class="form-group row">
+      <div class="col-6">
+         <%= sc.label "Date + Time:"%>
+         <%= sc.datetime_field :time, class: "form-control" %>
+         <%= content_tag :small, "#{@class.errors.full_messages_for(:"scheduled_classes.time").to_sentence}" if @class.errors[:"scheduled_classes.time"].any?%>
+      </div>
+   </div>
+         <% end %>
    <% end %>
-   <%=n.submit "#{button} Gym Class"%>
+   <%=n.submit "#{button} Gym Class", class: "btn btn-primary"%>
 <% end %>
