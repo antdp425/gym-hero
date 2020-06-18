@@ -2,7 +2,7 @@ class MembersController < ApplicationController
    before_action :logged_in?
    
    def index
-      @members = current_gym.members.all.count
+      @members = current_gym.members
    end
 
    def new
