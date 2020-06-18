@@ -8,4 +8,9 @@ class ScheduledClass < ApplicationRecord
   validates :time, presence: true
   validates_uniqueness_of :time, scope: [:gym_class_id, :member_id], message: "already taken and/or member is already in this scheduled class"
 
+
+  def time_only
+    time.strftime("%I:%M%p")
+  end
+
 end

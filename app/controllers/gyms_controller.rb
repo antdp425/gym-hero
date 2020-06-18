@@ -20,6 +20,7 @@ class GymsController < ApplicationController
    end
 
    def today
+      @classes = current_gym.scheduled_classes.todays_classes
    end
 
    private
