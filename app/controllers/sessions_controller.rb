@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
    before_action :dashboard_if_logged_in, only: [:new, :create]
-   
+
    def new
+      @gym = Gym.new
    end
 
    def create
@@ -43,16 +44,15 @@ class SessionsController < ApplicationController
    end
 
    def login_traditionally
-      if gym = Gym.find_by(email: session_params[:email])
-         if gym.authenticate(session_params[:password])
-            session[:user_id] = gym.id
-            redirect_to dashboard_path
-         else
-            render :new
-         end
+      @gym = Gym.new(session_params)
+      gym = Gym.find_by(email: session_params[:email])
+      if gym && gym.authenticate(session_params[:password])
+         session[:user_id] = gym.id
+         redirect_to dashboard_path
       else
+         @gym.errors[:email] << "not found / invalid Password. Please try again"
          render :new
       end
    end
-end
 
+end

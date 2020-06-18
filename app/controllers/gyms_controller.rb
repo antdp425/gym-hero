@@ -11,7 +11,6 @@ class GymsController < ApplicationController
 
    def create
       @gym = Gym.new(gym_params)
-      binding.pry
          if @gym.save      
             session[:user_id] = @gym.id
             redirect_to dashboard_path
@@ -23,7 +22,7 @@ class GymsController < ApplicationController
    private
    
    def gym_params
-      params.require(:gym).permit(:email, :password, :name)
+      params.require(:gym).permit(:email, :password)
    end
    
 end

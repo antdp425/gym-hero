@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-   helper_method :current_gym , :logged_in?
+   helper_method :current_gym , :logged_in?, :display_errors
    before_action :dashboard_if_logged_in, only: [:home]
 
    def home
@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
    def current_gym
       @gym = Gym.find_by(id: session[:user_id])
    end
+
 end
