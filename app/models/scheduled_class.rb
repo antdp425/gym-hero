@@ -3,14 +3,14 @@ class ScheduledClass < ApplicationRecord
   belongs_to :gym_class
   belongs_to :gym
 
-  scope :todays_classes, -> { where(time:DateTime.current..DateTime.current.end_of_day).distinct.where(member_id: nil) }
+  scope :todays_classes, -> { where(time:DateTime.current..DateTime.current.end_of_day).distinct.where(member_id: nil).order(time: :asc) }
 
   validates :time, presence: true
   validates_uniqueness_of :time, scope: [:gym_class_id, :member_id], message: "already taken and/or member is already in this scheduled class"
 
 
   def time_only
-    time.strftime("%I:%M%p")
+    time.strftime("%I:%M %p")
   end
 
 end
