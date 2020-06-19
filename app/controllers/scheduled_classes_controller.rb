@@ -1,10 +1,11 @@
 class ScheduledClassesController < ApplicationController
    before_action :logged_in?
-   before_action :get_class, only: [:new, :create]
+   before_action :get_class
    before_action :get_scheduled_class, only: [:new]
 
    def index
-      @scheduled_classes = current_gym.gym_classes.find_by(id: params[:gym_class_id]).scheduled_classes
+      redirect_to gym_classes_path and return unless @class
+      @scheduled_classes = @class.scheduled_classes.upcoming_classes
    end
 
    def new

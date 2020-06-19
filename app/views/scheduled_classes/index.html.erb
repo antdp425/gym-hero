@@ -1,1 +1,19 @@
-<%= @scheduled_classes.count %> classes
+
+
+<%= content_tag :h3, "Upcoming Classes for: #{@class.name}", class:"text-center"%>
+<div class="table-responsive">
+   <table class="table table-striped table-bordered">
+      <thead>
+         <tr>
+            <th scope="col">Time</th>
+         </tr>
+      </thead>
+      <tbody>
+         <% @scheduled_classes.each do |sc| %>
+            <tr>
+               <td><%= sc.full_time %></td>
+            </tr>
+         <% end %>
+      </tbody>
+   </table>
+</div>
