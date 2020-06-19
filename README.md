@@ -1,24 +1,42 @@
-# README
+# Gym Hero
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gym Hero is a Gym Management Solution built on Rails that allows you to keep tabs on all aspects of your gym.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+1. Fork and clone this repo
+2. Open Terminal
+3. Navigate to the app directory
+4. Type `bundle install` into terminal
+5. Type `rails s` into terminal and navigate to the localhost url that it provides
 
-* System dependencies
+## Usage
 
-* Configuration
+You will be greeted with a welcome page, where you can choose to:
+   - sign up / log in with username and password
+   - sign up / log in with Github
 
-* Database creation
+Once signed up and/or logged in you will land on your dashboard where you will be able to:
+   - create a member
+   - create a gym class
+   - you will also see stats/counters of the total: members, classes, and classes for the day 
 
-* Database initialization
+At this time the app only allows you to:
+   - Create + Edit Members / Gym Classes 
+   - Schedule Sessions for those Gym Classes / Members
+   - View information about members, classes, and scheduled classes
 
-* How to run the test suite
+Stay tuned for updates and new features in the near future.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
 
-* Deployment instructions
+Bug reports and pull requests are welcome on GitHub at https://github.com/antdp425/kiddo-care. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/antdp425/gym-hero/blob/master/CODE_OF_CONDUCT.md).
 
-* ...
+
+## License
+
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Kiddo-care project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/antdp425/gym-hero/blob/master/CODE_OF_CONDUCT.md).
