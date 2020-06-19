@@ -30,7 +30,7 @@ Stay tuned for updates and new features in the near future.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/antdp425/kiddo-care. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/antdp425/gym-hero/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/antdp425/gym-hero. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/antdp425/gym-hero/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
