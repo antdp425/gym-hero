@@ -1,9 +1,7 @@
 class GymsController < ApplicationController
    before_action :dashboard_if_logged_in, only: [:new, :create]
+   before_action :logged_in?, only: [:dashboard]
    # skip_before_action :verify_authenticity_token, only: [:create]
-
-   def dashboard
-   end
    
    def new
       @gym = Gym.new
@@ -18,6 +16,13 @@ class GymsController < ApplicationController
             render :new
          end
    end
+
+   def dashboard
+      @members = current_gym.members
+      @classes = current_gym.gym_classes
+      @todays_classes = current_gym.scheduled_classes.todays_classes
+   end
+   
 
    def today
       @classes = current_gym.scheduled_classes.todays_classes

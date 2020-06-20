@@ -13,12 +13,16 @@
 <hr>
 <div class="card-group">
    <div class="card border-primary text-center">
-      <%= link_to "#{pluralize(current_gym.members.count, "<br /> Member")}".html_safe , members_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(@members.count, "<br /> Member")}".html_safe , members_path, class: "card-body counter"%>
    </div>
    <div class="card border-success text-center">
-      <%= link_to "#{pluralize(current_gym.gym_classes.count, "<br /> Class")}".html_safe , gym_classes_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(@classes.count, "<br /> Class")}".html_safe , gym_classes_path, class: "card-body counter"%>
    </div>
    <div class="card border-dark text-center">
-      <%= link_to "#{pluralize(current_gym.scheduled_classes.todays_classes.count, "<br /> Class")} Today".html_safe, todays_classes_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(@todays_classes.count, "<br /> Class")} Today".html_safe, todays_classes_path, class: "card-body counter"%>
    </div>
 </div>
+
+<br>
+
+<%= render partial: 'todays_classes', locals: {classes: @todays_classes}%>
