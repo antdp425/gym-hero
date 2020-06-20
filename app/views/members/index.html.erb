@@ -1,26 +1,8 @@
-<h3 class="text-center">Members</h3>
-<div class="table-responsive">
-   <table class="table table-striped table-bordered">
-      <thead>
-         <tr>
-            <th scope="col">Last Name</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Actions</th>
-         </tr>
-      </thead>
-      <tbody>
-         <% @members.each do |m| %>
-            <tr>
-               <td scope="row"><%= m.last_name %></td>
-               <td><%= m.first_name %></td>
-               <td><%= m.phone_number %></td>
-               <td>
-                  <%= link_to 'View', member_path(m), class: "btn btn-sm btn-primary"%> 
-                  <%= link_to 'Edit', edit_member_path(m), class: "btn btn-sm btn-success"%> 
-               </td>
-            </tr>
-         <% end %>
-      </tbody>
-   </table>
-</div>
+<% if current_gym.members.blank?%>
+   <div class="alert alert-info text-center p-4">
+      Your gym does not have any members yet. <br>
+      <%= link_to "Add Member", new_member_path, class: "btn btn-sm btn-dark mt-2"%>
+   </div>
+<% else %>
+   <%= render partial: 'members', locals: {members: @members} %>
+<% end %>
