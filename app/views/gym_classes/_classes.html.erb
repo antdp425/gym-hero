@@ -1,0 +1,23 @@
+<h3 class="text-center">Classes</h3>
+<div class="table-responsive">
+   <table class="table table-striped table-bordered">
+      <thead>
+         <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+         </tr>
+      </thead>
+      <tbody>
+         <% classes.each do |c| %>
+            <tr>
+               <td scope="row"><%= c.name %></td>
+               <td class="mb-0">
+                  <%= link_to 'View', gym_class_path(c), class: "btn btn-sm btn-primary"%> 
+                  <%= link_to 'Edit', edit_gym_class_path(c), class: "btn btn-sm btn-success"%> 
+                 <%= link_to 'Add Session', new_gym_class_scheduled_class_path(c), class: "btn btn-sm btn-dark"%>  
+               </td>
+            </tr>
+         <% end %>
+      </tbody>
+   </table>
+</div>
