@@ -23,6 +23,6 @@
    </div>
 </div>
 
-<br>
+<hr>
 
-<%= render partial: 'todays_classes', locals: {classes: @todays_classes}%>
+<%= render partial: 'todays_classes', locals: {classes: @todays_classes} if @todays_classes.count > 0 %>
