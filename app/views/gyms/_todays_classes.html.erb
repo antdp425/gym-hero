@@ -12,6 +12,7 @@
             <tr>
                <td scope="row"><%= c.gym_class.name %></td>
                <td><%= c.time_only %></td>
+               <td><%= link_to "Add Member", new_gym_class_scheduled_class_path(c.gym_class_id, :time => c.time), class:"btn btn-primary btn-sm" %></td>
             </tr>
          <% end %>
       </tbody>
