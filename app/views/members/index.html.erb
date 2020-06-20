@@ -1,4 +1,4 @@
-<% if current_gym.members.blank?%>
+<% if @members.blank?%>
    <div class="alert alert-info text-center p-4">
       Your gym does not have any members yet. <br>
       <%= link_to "Add Member", new_member_path, class: "btn btn-sm btn-dark mt-2"%>

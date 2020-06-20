@@ -3,7 +3,7 @@
 <hr>
 <div class="card-group">
    <div class="card bg-primary">
-      <%= link_to 'Create Gym Member', new_member_path, class: "card-body text-center"%>
+      <%= link_to 'Add Member', new_member_path, class: "card-body text-center"%>
    </div>
 
    <div class="card bg-success">
@@ -13,12 +13,12 @@
 <hr>
 <div class="card-group">
    <div class="card border-primary text-center">
-      <%= link_to "#{current_gym.members.count} <br /> Members".html_safe , members_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(current_gym.members.count, "<br /> Member")}".html_safe , members_path, class: "card-body counter"%>
    </div>
    <div class="card border-success text-center">
-      <%= link_to "#{current_gym.gym_classes.count} <br /> Classes".html_safe , gym_classes_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(current_gym.gym_classes.count, "<br /> Class")}".html_safe , gym_classes_path, class: "card-body counter"%>
    </div>
    <div class="card border-dark text-center">
-      <%= link_to "#{current_gym.scheduled_classes.todays_classes.count} <br /> Classes Today".html_safe , todays_classes_path, class: "card-body counter"%>
+      <%= link_to "#{pluralize(current_gym.scheduled_classes.todays_classes.count, "<br /> Class")} Today".html_safe, todays_classes_path, class: "card-body counter"%>
    </div>
 </div>
