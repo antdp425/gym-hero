@@ -1,7 +1,8 @@
 <% if current_gym.gym_classes.blank?%>
-   <div class="alert alert-info text-center">
-      Your gym does not have any classes yet. <%= link_to "Create Class", new_gym_class_path, class: "btn btn-sm btn-dark ml-2"%>
+   <div class="alert alert-info text-center p-4">
+      Your gym does not have any classes yet. <br>
+      <%= link_to "Create Class", new_gym_class_path, class: "btn btn-sm btn-dark mt-2"%>
    </div>
 <% else %>
-<%= render partial: 'classes', locals: {classes: @classes} %>
+   <%= render partial: 'classes', locals: {classes: @classes} %>
 <% end %>
