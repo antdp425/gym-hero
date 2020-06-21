@@ -17,7 +17,8 @@
                <td><%= m.phone_number %></td>
                <td>
                   <%= link_to 'View', member_path(m), class: "btn btn-sm btn-primary"%> 
-                  <%= link_to 'Edit', edit_member_path(m), class: "btn btn-sm btn-success"%> 
+                  <%= link_to 'Edit', edit_member_path(m), class: "btn btn-sm btn-success"%>
+                  <%= link_to 'Delete Member', destroy_member_path(m), method: :delete, class: "btn btn-sm btn-danger" %>     
                </td>
             </tr>
          <% end %>

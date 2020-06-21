@@ -22,5 +22,7 @@ Rails.application.routes.draw do
 
   delete "/gym_classes/:id", to: "gym_classes#destroy", as: "destroy_gym_class"
 
+  delete "/members/:id", to: "members#destroy", as: "destroy_member"
+
   get "*path", to: redirect("/")
 end

@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
    before_action :logged_in?
-   before_action :current_gym_member, only: [:show, :edit]
+   before_action :current_gym_member, only: [:show, :edit, :update, :destroy]
    
    def index
       @members = current_gym.members.ordered
@@ -34,6 +34,18 @@ class MembersController < ApplicationController
       else
          render :edit
       end
+   end
+
+   def destroy
+      redirect_to members_path and return unless @member
+      @member.destroy
+         if @member.destroyed?
+            flash.notice = "Member was successfully deleted. ✅"
+            redirect_to members_path
+         else
+            flash.notice = "Unable to delete at this time, please try again later. ⚠️"
+            redirect_to members_path
+         end
    end
 
    private

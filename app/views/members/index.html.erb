@@ -1,3 +1,9 @@
+<% if flash.notice %>
+   <div class="alert alert-danger text-center">
+      <%= flash.notice %> <br>
+   </div>
+<% end %>
+<br>
 <% if @members.blank?%>
    <div class="alert alert-info text-center p-4">
       Your gym does not have any members yet. <br>
