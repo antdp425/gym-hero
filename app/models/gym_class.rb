@@ -1,6 +1,6 @@
 class GymClass < ApplicationRecord
   belongs_to :gym
-  has_many :scheduled_classes
+  has_many :scheduled_classes, dependent: :destroy
   has_many :members, through: :scheduled_classes
 
   scope :ordered, -> { order(name: :asc) }

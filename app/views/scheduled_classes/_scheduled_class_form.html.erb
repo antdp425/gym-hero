@@ -2,7 +2,7 @@
    <div class="form-group row">
       <div class="col-6">
          <%= f.label "Date:"%>
-         <%= f.datetime_field :time, class: "form-control", value: @time%>
+         <%= f.datetime_field :time, class: "form-control", value: @time, min: @time, max: @time%>
          <%= content_tag :small, "#{@scheduled_class.errors.full_messages_for(:time).to_sentence}" if @scheduled_class.errors[:time].any?%>
       </div>
    </div>
