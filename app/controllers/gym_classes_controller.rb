@@ -1,6 +1,6 @@
 class GymClassesController < ApplicationController
    before_action :logged_in?
-   before_action :current_gym_gym_class, only: [:show, :edit]
+   before_action :current_gym_gym_class, only: [:show, :edit, :update, :destroy]
 
    def index
       @classes = current_gym.gym_classes.ordered
@@ -36,6 +36,18 @@ class GymClassesController < ApplicationController
       else
          render :edit
       end
+   end
+
+   def destroy
+      redirect_to gym_classes_path and return unless @class
+      @class.destroy
+         if @class.destroyed?
+            flash.notice = "#{@class.name} was successfully deleted. ✅"
+            redirect_to gym_classes_path
+         else
+            flash.notice = "Unable to delete at this time, please try again later. ⚠️"
+            redirect_to gym_classes_path
+         end
    end
 
    private

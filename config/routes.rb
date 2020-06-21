@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get '/signup', to: "gyms#new", as: "signup"
   get "/today", to: "gyms#today", as: "todays_classes"
 
+  delete "/gym_classes/:id", to: "gym_classes#destroy", as: "destroy_gym_class"
+
   get "*path", to: redirect("/")
 end

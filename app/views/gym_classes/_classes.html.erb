@@ -12,9 +12,10 @@
             <tr>
                <td><%= c.name %></td>
                <td class="mb-0">
+                  <%= link_to 'Add Session', new_gym_class_scheduled_class_path(c), class: "btn btn-sm btn-dark"%>
                   <%= link_to 'View', gym_class_path(c), class: "btn btn-sm btn-primary"%> 
                   <%= link_to 'Edit', edit_gym_class_path(c), class: "btn btn-sm btn-success"%> 
-                 <%= link_to 'Add Session', new_gym_class_scheduled_class_path(c), class: "btn btn-sm btn-dark"%>  
+                  <%= link_to 'Delete Class', destroy_gym_class_path(c), method: :delete, class: "btn btn-sm btn-danger", data: {confirm: "Deleting this class will delete all of its scheduled sessions."} %>     
                </td>
             </tr>
          <% end %>
