@@ -6,7 +6,7 @@ class ScheduledClass < ApplicationRecord
   scope :todays_classes, -> { where(time: DateTime.current..DateTime.current.end_of_day).distinct.where(member_id: nil).order(time: :asc) }
 
   scope :upcoming_classes, -> { where("time >= ?", DateTime.current).where("member_id IS ?", nil).order(time: :asc) }
-
+  
 
   validates :time, presence: true
   validates_uniqueness_of :time, scope: [:gym_class_id, :member_id], message: "already taken and/or member is already in this scheduled class"

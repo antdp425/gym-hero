@@ -1,5 +1,9 @@
-<%= "#{@member.first_name} #{@member.last_name}"%>
+<%= content_tag :h3, "#{@member.first_name} #{@member.last_name}" %>
 <br>
-<%= @member.email %>
+Email: <%= @member.email %>
 <br>
-<%= @member.phone_number %>
+Phone: <%= @member.phone_number %>
+<br>
+<br>
+<%= link_to 'Edit', edit_member_path, class: "btn btn-success"%>
+<%= link_to 'Delete', destroy_member_path, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure you want to delete this member?"}%>

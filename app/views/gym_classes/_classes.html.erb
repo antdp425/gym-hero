@@ -4,6 +4,7 @@
       <thead>
          <tr>
             <th scope="col">Name</th>
+            <th scope="col">Duration(in Minutes)</th>
             <th scope="col">Actions</th>
          </tr>
       </thead>
@@ -11,6 +12,7 @@
          <% classes.each do |c| %>
             <tr>
                <td><%= c.name %></td>
+               <td><%= c.duration %></td>
                <td class="mb-0">
                   <%= link_to 'Add Session', new_gym_class_scheduled_class_path(c), class: "btn btn-sm btn-dark"%>
                   <%= link_to 'View', gym_class_path(c), class: "btn btn-sm btn-primary"%> 

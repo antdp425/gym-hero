@@ -39,6 +39,7 @@ class MembersController < ApplicationController
    def destroy
       redirect_to members_path and return unless @member
       @member.destroy
+      binding.pry
          if @member.destroyed?
             flash.notice = "Member was successfully deleted. ✅"
             redirect_to members_path
