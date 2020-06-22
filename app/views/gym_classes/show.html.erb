@@ -1,16 +1,10 @@
-Name: <%= @class.name %>
-<br>
+<%= content_tag :h3, "#{@class.name}" %>
+<hr>  
 Description: <%= @class.description %>
 <br>
-Minutes: <%= @class.duration %> 
-<br>
-Capacity: <%= @class.max_size %> 
+Duration: <%= pluralize(@class.duration, "minute") %>
 <br>
 <br>
-Upcoming Classes:
-<br>
-<br>
-
-<% @class.scheduled_classes.group(:time).each do |gc| %>
-      <%= gc.time.strftime("%B %d, %Y at %I:%M%p")%> <br>
-<% end %>
+<%= link_to 'View Sessions', gym_class_scheduled_classes_path(@class) , class: "btn btn-info"%>
+<%= link_to 'Edit', edit_gym_class_path, class: "btn btn-success"%>
+<%= link_to 'Delete', destroy_gym_class_path, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure you want to delete this member?"}%>
