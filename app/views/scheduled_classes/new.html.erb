@@ -1,4 +1,8 @@
-<h1>New Class for: <%= @class.name %></h1>
+<% if params[:time].present?  %>
+   <%= content_tag :h2, "New Member for: #{@class.name}" %>
+<% else%>
+   <%= content_tag :h2, "New Session for: #{@class.name}" %>
+<% end %>
 
 <%= render 'scheduled_class_form' %>
 
