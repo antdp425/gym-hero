@@ -11,6 +11,7 @@
          <%= content_tag :small, "#{@member.errors.full_messages_for(:last_name).to_sentence}" if @member.errors[:last_name].any?%>
       </div>
    </div>
+
    <div class="form-group row">
       <div class="col-6">
          <%=f.label "Email:" %>
@@ -18,6 +19,7 @@
          <%= content_tag :small, "#{@member.errors.full_messages_for(:email).to_sentence}" if @member.errors[:email].any?%>
       </div>
    </div>
+
    <div class="form-group row">
       <div class="col-6">
          <%=f.label "Phone Number:" %>
@@ -25,9 +27,11 @@
          <%= content_tag :small, "#{@member.errors.full_messages_for(:phone_number).to_sentence}" if @member.errors[:phone_number].any?%>
       </div>
    </div>
+
    <div class="form-group row">
       <div class="col">
          <%=f.submit class: "btn btn-primary"%>
       </div>
    </div>
+   
 <% end %>

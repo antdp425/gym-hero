@@ -1,16 +1,7 @@
 <h3> Welcome </h3>
 
 <hr>
-<div class="card-group">
-   <div class="card bg-primary">
-      <%= link_to 'Add Member', new_member_path, class: "card-body text-center"%>
-   </div>
 
-   <div class="card bg-success">
-      <%= link_to 'Create Class', new_gym_class_path, class: "card-body text-center"%>
-   </div>
-</div>
-<hr>
 <div class="card-group">
    <div class="card border-primary text-center">
       <%= link_to "#{pluralize(@members.count, "<br /> Member")}".html_safe , members_path, class: "card-body counter"%>
