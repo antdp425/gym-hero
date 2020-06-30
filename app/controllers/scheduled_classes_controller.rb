@@ -1,7 +1,8 @@
 class ScheduledClassesController < ApplicationController
    before_action :logged_in?
    before_action :create_class
-   before_action :create_time, :create_scheduled_class, only: [:new]
+   before_action :create_time, only: [:new, :destroy]
+   before_action :create_scheduled_class, only: [:new]
 
    def index
       redirect_to gym_classes_path and return unless @class
@@ -22,8 +23,9 @@ class ScheduledClassesController < ApplicationController
       end
    end
 
-   def cancel_session
-      @scheduled_classes = current_gym.scheduled_classes.this_session
+   def destroy
+      binding.pry
+      @scheduled_classes = @class.scheduled_classes.this_session(@time)
    end
 
    private
