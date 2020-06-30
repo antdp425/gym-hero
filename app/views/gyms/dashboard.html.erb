@@ -1,6 +1,8 @@
-<h3> Welcome </h3>
-
-<hr>
+<% if flash.notice %>
+   <div class="alert alert-danger text-center">
+      <%= flash.notice %> <br>
+   </div>
+<% end %>
 
 <div class="card-group">
    <div class="card border-primary text-center">

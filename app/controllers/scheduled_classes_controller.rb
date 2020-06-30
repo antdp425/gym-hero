@@ -24,8 +24,15 @@ class ScheduledClassesController < ApplicationController
    end
 
    def destroy
-      binding.pry
-      @scheduled_classes = @class.scheduled_classes.this_session(@time)
+      redirect_to gym_classes_path and return unless @class
+      @scheduled_class = @class.scheduled_classes.this_session(@time)
+      if @scheduled_class.destroy_all
+         flash.notice = "#{@class.name} for #{@time.to_datetime.strftime("%B %d, %Y at %I:%M %p")} was cancelled. ✅"
+         redirect_to dashboard_path
+      else
+         flash.notice = "Unable to cancel #{@class.name} for #{@time.to_datetime.strftime("%B %d, %Y at %I:%M %p")} at this time, please try again later. ⚠️"
+         redirect_to dashboard_path
+      end
    end
 
    private
