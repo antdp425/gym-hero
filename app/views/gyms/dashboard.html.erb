@@ -18,4 +18,11 @@
 
 <hr>
 
-<%= render partial: 'todays_classes', locals: {classes: @todays_classes} if @todays_classes.count > 0 %>
+<% if @todays_classes.blank?%>
+   <div class="alert alert-info text-center p-4">
+      Your gym does not have any classes scheduled for today, yet. 👻<br>
+      <%= link_to "Create a Session", gym_classes_path, class: "btn btn-sm btn-dark mt-2"%>
+   </div>
+<% else %>
+   <%= render partial: 'todays_classes', locals: {classes: @todays_classes} if @todays_classes.count > 0 %>
+<% end %>
