@@ -3,13 +3,16 @@
    <table class="table table-striped table-bordered">
       <thead>
          <tr>
-            <th scope="col">Time</th>
+            <th class="text-center" scope="col">Time</th>
+            <th class="text-center" scope="col">Actions</th>
          </tr>
       </thead>
       <tbody>
          <% scheduled_classes.each do |sc| %>
             <tr>
-               <td><%= sc.full_time %></td>
+               <td class="text-center"><%= sc.full_time %></td>
+               <td class="text-center"> <%= link_to "Add Member", new_gym_class_scheduled_class_path(sc.gym_class_id, time: sc.time), class:"btn btn-primary btn-sm text-center" %>
+               <%= link_to "Cancel Class", cancel_class_path(sc.gym_class_id, sc, time: sc.time), method: "delete", data: {confirm: "Are you sure you want to cancel this class?"}, class:"btn btn-danger btn-sm text-center" %></td>
             </tr>
          <% end %>
       </tbody>
