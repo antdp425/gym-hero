@@ -3,20 +3,21 @@
    <table class="table table-striped table-bordered">
       <thead>
          <tr>
-            <th scope="col">Class</th>
-            <th scope="col">Time</th>
-            <th scope="col">Actions</th>
+            <th class="text-center" scope="col">Class</th>
+            <th class="text-center" scope="col">Time</th>
+            <th class="text-center" scope="col">Actions</th>
          </tr>
       </thead>
       <tbody>
          <% classes.each do |c| %>
             <tr>
-               <td scope="row"><%= c.gym_class.name %></td>
-               <td><%= c.time_only %></td>
-               <td><%= link_to "Add Member", new_gym_class_scheduled_class_path(c.gym_class_id, time: c.time), class:"btn btn-primary btn-sm" %></td>
-               <td><%= link_to "Cancel Class", gym_class_scheduled_class_path(c.gym_class_id, c, time: c.time), method: "DELETE", class:"btn btn-danger btn-sm" %></td>
+               <td class="text-center" scope="row"><%= c.gym_class.name %></td>
+               <td class="text-center"><%= c.time_only %></td>
+               <td class="text-center"> <%= link_to "Add Member", new_gym_class_scheduled_class_path(c.gym_class_id, time: c.time), class:"btn btn-primary btn-sm text-center" %>
+               <%= link_to "Cancel Class", gym_class_scheduled_class_path(c.gym_class_id, c, time: c.time), method: "DELETE", data: {confirm: "Are you sure you want to cancel this class?"}, class:"btn btn-danger btn-sm text-center" %></td>
             </tr>
          <% end %>
       </tbody>
    </table>
 </div>
+
