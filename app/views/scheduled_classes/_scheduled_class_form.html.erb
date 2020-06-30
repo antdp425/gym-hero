@@ -2,7 +2,7 @@
 
    <div class="form-group row">
       <div class="col-6">
-         <%= f.label "Date:"%>
+         <%= f.label :time, "Date:"%>
          <%= f.datetime_field :time, class: "form-control", value: @time, min: @time, max: @time%>
          <%= content_tag :small, "#{@scheduled_class.errors.full_messages_for(:time).to_sentence}" if @scheduled_class.errors[:time].any?%>
       </div>
@@ -10,7 +10,7 @@
 
    <div class="form-group row">
       <div class="col-6">
-         <%= f.label "Add Member (optional):"%>
+         <%= f.label :member_id, "Add Member (optional):"%>
          <%= f.collection_select :member_id, current_gym.members.all.ordered , :id, :full_name, {include_blank: "---"}, class: "form-control"%>
          <%= content_tag :small, "#{@scheduled_class.errors.full_messages_for(:member_id).to_sentence}" if @scheduled_class.errors[:member_id].any?%>
       </div>

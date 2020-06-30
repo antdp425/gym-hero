@@ -1,12 +1,12 @@
 <%= form_for @member do |f| %>
    <div class="form-group row">
       <div class="col-3">
-         <%=f.label "First Name:" %>
+         <%=f.label :first_name, "First Name:" %>
          <%=f.text_field :first_name, class: "form-control"%>
          <%= content_tag :small, "#{@member.errors.full_messages_for(:first_name).to_sentence}" if @member.errors[:first_name].any?%>
       </div>
       <div class="col-3">
-         <%=f.label "Last Name:" %>
+         <%=f.label :last_name, "Last Name:" %>
          <%=f.text_field :last_name, class: "form-control"%>
          <%= content_tag :small, "#{@member.errors.full_messages_for(:last_name).to_sentence}" if @member.errors[:last_name].any?%>
       </div>
@@ -14,7 +14,7 @@
 
    <div class="form-group row">
       <div class="col-6">
-         <%=f.label "Email:" %>
+         <%=f.label :email, "Email:" %>
          <%=f.email_field :email, class:"form-control" %>
          <%= content_tag :small, "#{@member.errors.full_messages_for(:email).to_sentence}" if @member.errors[:email].any?%>
       </div>
@@ -22,7 +22,7 @@
 
    <div class="form-group row">
       <div class="col-6">
-         <%=f.label "Phone Number:" %>
+         <%=f.label :phone_number, "Phone Number:" %>
          <%=f.telephone_field :phone_number, maxlength: 10, class: "form-control" %>
          <%= content_tag :small, "#{@member.errors.full_messages_for(:phone_number).to_sentence}" if @member.errors[:phone_number].any?%>
       </div>

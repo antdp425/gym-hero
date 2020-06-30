@@ -1,17 +1,8 @@
-<%= content_tag :h3, "Upcoming Classes for: #{@class.name}", class:"text-center"%>
-<div class="table-responsive">
-   <table class="table table-striped table-bordered">
-      <thead>
-         <tr>
-            <th scope="col">Time</th>
-         </tr>
-      </thead>
-      <tbody>
-         <% @scheduled_classes.each do |sc| %>
-            <tr>
-               <td><%= sc.full_time %></td>
-            </tr>
-         <% end %>
-      </tbody>
-   </table>
-</div>
+<% if @scheduled_classes.blank? %>
+   <div class="alert alert-info text-center p-4">
+      <%=@class.name%> does not have any upcoming session yet. <br>
+      <%= link_to "Create Session", new_gym_class_scheduled_class_path(@class), class: "btn btn-sm btn-dark mt-2"%>
+   </div>
+<% else %>
+   <%= render partial: 'scheduled_classes', locals: {gym_class: @class, scheduled_classes: @scheduled_classes}%>
+<% end %>
