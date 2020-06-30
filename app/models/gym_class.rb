@@ -9,6 +9,5 @@ class GymClass < ApplicationRecord
 
   validates :name, :duration, :max_size, presence: true
   validates_uniqueness_of :name, scope: :gym_id, case_sensitive: false
-
-
+  
 end

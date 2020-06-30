@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-   helper_method :current_gym , :logged_in?
+   protect_from_forgery with: :exception
+   helper_method :current_gym, :logged_in?
    before_action :dashboard_if_logged_in, only: [:home]
 
    def home

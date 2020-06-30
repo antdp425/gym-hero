@@ -6,6 +6,8 @@ class ScheduledClass < ApplicationRecord
   scope :todays_classes, -> { where(time: DateTime.current..DateTime.current.end_of_day).distinct.where(member_id: nil).order(time: :asc) }
 
   scope :upcoming_classes, -> { where("time >= ?", DateTime.current).where("member_id IS ?", nil).order(time: :asc) }
+
+  scope :this_session, ->(time = params[:time].to_datetime) {where("time = ?", time)}
   
 
   validates :time, presence: true

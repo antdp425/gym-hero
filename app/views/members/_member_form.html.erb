@@ -23,7 +23,7 @@
    <div class="form-group row">
       <div class="col-6">
          <%=f.label "Phone Number:" %>
-         <%=f.telephone_field :phone_number, class: "form-control" %>
+         <%=f.telephone_field :phone_number, maxlength: 10, class: "form-control" %>
          <%= content_tag :small, "#{@member.errors.full_messages_for(:phone_number).to_sentence}" if @member.errors[:phone_number].any?%>
       </div>
    </div>

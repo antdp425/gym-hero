@@ -1,7 +1,6 @@
 class GymsController < ApplicationController
    before_action :dashboard_if_logged_in, only: [:new, :create]
    before_action :logged_in?, only: [:dashboard]
-   # skip_before_action :verify_authenticity_token, only: [:create]
    
    def new
       @gym = Gym.new

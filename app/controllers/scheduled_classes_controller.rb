@@ -16,10 +16,14 @@ class ScheduledClassesController < ApplicationController
       @scheduled_class.gym = current_gym
       create_nil_member_scheduled_class unless scheduled_class_params[:member_id].blank?
       if @scheduled_class.save
-         redirect_to gym_class_scheduled_classes_path and return
+         redirect_to gym_class_scheduled_classes_path
       else
          render :new
       end
+   end
+
+   def cancel_session
+      @scheduled_classes = current_gym.scheduled_classes.this_session
    end
 
    private
