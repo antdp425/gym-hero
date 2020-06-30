@@ -14,7 +14,7 @@
                <td class="text-center" scope="row"><%= c.gym_class.name %></td>
                <td class="text-center"><%= c.time_only %></td>
                <td class="text-center"> <%= link_to "Add Member", new_gym_class_scheduled_class_path(c.gym_class_id, time: c.time), class:"btn btn-primary btn-sm text-center" %>
-               <%= link_to "Cancel Class", gym_class_scheduled_class_path(c.gym_class_id, c, time: c.time), method: "DELETE", data: {confirm: "Are you sure you want to cancel this class?"}, class:"btn btn-danger btn-sm text-center" %></td>
+               <%= link_to "Cancel Class", cancel_class_path(c.gym_class_id, c, time: c.time), method: "delete", data: {confirm: "Are you sure you want to cancel this class?"}, class:"btn btn-danger btn-sm text-center" %></td>
             </tr>
          <% end %>
       </tbody>
