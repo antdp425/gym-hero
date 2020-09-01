@@ -4,6 +4,7 @@ class GymClass < ApplicationRecord
   has_many :members, through: :scheduled_classes
 
   scope :ordered, -> { order(name: :asc) }
+  scope :search, ->(query) { where("name LIKE ?", "%#{query}%")}
 
   accepts_nested_attributes_for :scheduled_classes
 

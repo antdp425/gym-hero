@@ -3,7 +3,7 @@ class GymClassesController < ApplicationController
    before_action :current_gym_gym_class, only: [:show, :edit, :update, :destroy]
 
    def index
-      @classes = current_gym.gym_classes.ordered
+      params[:q] ? (@classes = current_gym.gym_classes.search(params[:q])) : (@classes = current_gym.gym_classes.ordered)
    end
 
    def new

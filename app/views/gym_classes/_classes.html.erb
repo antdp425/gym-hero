@@ -1,3 +1,10 @@
+
+<%= form_with(url: gym_classes_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <div class="float-right">
 <%= link_to 'Create Class', new_gym_class_path, class: "btn btn-success align-right" %>
 </div>
