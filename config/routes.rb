@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   ################################################################
   
   #Github Authentication
-  get '/auth/:provider/callback', to: 'sessions#create'
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   
   ################################################################
 
