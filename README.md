@@ -2,9 +2,9 @@
 
 Gym Hero is a Gym Management Solution built on Rails that allows you to keep tabs on all aspects of your gym.
 
-Walkthrough: https://youtu.be/2mFvG_Uoro0
+Walkthrough: https://bit.ly/37W5ZjY
 
-Demo: https://desolate-ridge-36212.herokuapp.com/
+Demo: https://bit.ly/34DCH7z
 
 ## Getting Started
 
